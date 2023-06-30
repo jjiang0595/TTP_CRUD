@@ -1,0 +1,32 @@
+.header {
+  background: #E6C4C0;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-left: 5rem;
+  padding-right: 5rem;
+  border-bottom-right-radius: 15%;
+  border-bottom-left-radius: 15%;
+  margin-bottom: 5rem;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__logo {
+    font-size: 3.5rem;
+    padding-bottom: .5rem;
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.5rem;
+}
