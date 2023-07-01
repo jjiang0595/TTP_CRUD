@@ -29,7 +29,7 @@ const Student = db.define('Student', {
         defaultValue: 'https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg'
     },
     gpa: {
-        type: DataTypes.DECIMAL(1, 2),
+        type: DataTypes.DECIMAL(3, 1),
         validate: {
             min: 0.0,
             max: 4.0
