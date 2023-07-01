@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 function Navbar() {
     return (
         <nav className={styles.header}>
-            <Link className={styles.link}>
+            <Link to="/students" className={styles.link}>
                 Students
             </Link>
-            <Link className={styles.link}>
+            <Link to="/" className={styles.link}>
                 <p className={styles.header__logo}>Home</p>
             </Link>
-            <Link className={styles.link}>
+            <Link to="/campuses" className={styles.link}>
                 <p>Campuses</p>
             </Link>
         </nav>

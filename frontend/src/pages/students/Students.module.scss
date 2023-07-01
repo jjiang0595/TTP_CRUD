@@ -1,0 +1,38 @@
+.students {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 10rem;
+  width: 80vw;
+
+  &__header {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__button {
+      font-size: 1.5rem;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      border: 2px solid black;
+      background-color: rgba(255, 255, 255, 0.5);
+      transition: .5s;
+
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+  }
+
+  &__none {
+    font-size: 2rem;
+    margin-top: 5rem;
+  }
+}
