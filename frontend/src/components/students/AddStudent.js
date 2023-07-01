@@ -1,6 +1,24 @@
 import styles from './AddStudent.module.scss';
+import {useState} from "react";
 
 function AddStudent() {
+    const [student, setStudent] = useState({
+        name: "",
+        email: "",
+        url: "",
+        gpa: 0,
+        campusId: 0
+    })
+
+    const changeHandler = (event) => {
+        setStudent({...student, [event.target.name]: event.target.value})
+    }
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+
+    }
+
     return (
         <div className={styles.container}>
             <h1 className={styles.container__header}>Add a Student</h1>
@@ -20,12 +38,12 @@ function AddStudent() {
 
                 <div>
                     <label htmlFor="url" className={styles.container__form__label}>Image URL:</label>
-                    <input className={styles.container__form__input} type="text" id="url" name="URL" required/>
+                    <input className={styles.container__form__input} type="url" id="url" name="URL" required/>
                 </div>
 
                 <div>
                     <label htmlFor="gpa" className={styles.container__form__label}>GPA:</label>
-                    <input className={styles.container__form__input} type="number" min="0" max="4" step=".25" id="gpa" name="gpa" required/>
+                    <input className={styles.container__form__input} type="number" min="0.0" max="4.0" step=".25" id="gpa" name="gpa" required/>
                 </div>
 
                 <div>
