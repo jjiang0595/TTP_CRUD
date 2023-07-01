@@ -39,41 +39,56 @@ export const updateCampus = (payload) => {
 
 // thunks
 export const fetchAllCampusesThunk = () => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get("http://localhost:8080/api/campuses");
+            dispatch(fetchAllCampuses(data));
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
-export const fetchSingleCampusThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const fetchSingleCampusThunk = async (id) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get(`http://localhost:8080/api/campuses/${id}`);
+            dispatch(fetchSingleCampus(data));
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
-export const deleteCampusThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const deleteCampusThunk = async (id) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.delete(`http://localhost:8080/api/campuses/${id}`);
+            dispatch(deleteCampus(data));
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
 
-export const createCampusThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const createCampusThunk = async (campus) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.post("http://localhost:8080/api/campuses", campus);
+            dispatch(createCampus(data));
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
 
-export const updateCampusThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const updateCampusThunk = async (id) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.put(`http://localhost:8080/api/campuses/${id}`);
+            dispatch(updateCampus(data));
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
