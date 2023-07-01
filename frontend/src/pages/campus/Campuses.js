@@ -9,7 +9,7 @@ function Campuses() {
         <div className={styles.campuses}>
             <div className={styles.campuses__header}>
                 <h1 className={styles.campuses__header__title}>Campuses List</h1>
-                <button type="button" className={styles.campuses__header__button}>Add Campus</button>
+                <Link to="/campuses/add" className={styles.campuses__header__button}>Add Campus</Link>
             </div>
             {!campuses ?
                 <ul>
