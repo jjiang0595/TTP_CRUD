@@ -9,7 +9,7 @@ function Students() {
         <div className={styles.students}>
             <div className={styles.students__header}>
                 <h1 className={styles.students__header__title}>Students List</h1>
-                <button type="button" className={styles.students__header__button}>Add Student</button>
+                <Link to="/students/add" className={styles.students__header__button}>Add Student</Link>
             </div>
             {!students ?
                 <ul>

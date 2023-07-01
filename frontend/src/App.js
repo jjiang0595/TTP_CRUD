@@ -5,6 +5,7 @@ import Layout from "./components/layout/Layout";
 import Campuses from "./pages/campus/Campuses";
 import Students from "./pages/students/Students";
 import AddCampusPage from "./pages/campus/AddCampusPage";
+import AddStudentPage from "./pages/students/AddStudentPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/campuses" element={<Campuses />}></Route>
                     <Route path="/campuses/add" element={<AddCampusPage />}></Route>
                     <Route path="/students" element={<Students />}></Route>
+                    <Route path="/students/add" element={<AddStudentPage />}></Route>
                 </Routes>
             </Layout>
         </Router>
