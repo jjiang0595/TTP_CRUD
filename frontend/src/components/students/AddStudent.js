@@ -32,7 +32,7 @@ function AddStudent() {
                     <label htmlFor="campus_name" className={styles.container__form__label}>Campus Name:</label>
                     <input className={styles.container__form__input} type="text" id="campus_name" name="campus_name"/>
                 </div>
-                
+
                 <button type="submit" className={styles.container__form__submit}>Add Student</button>
             </form>
         </div>
