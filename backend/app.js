@@ -7,11 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// add routes here
+app.use("/api", require("./api"));
+
+db.sync();
 
 const port = 8080;
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
-
-db.sync();
