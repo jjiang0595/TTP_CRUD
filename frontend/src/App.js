@@ -6,6 +6,7 @@ import Campuses from "./pages/campus/Campuses";
 import Students from "./pages/students/Students";
 import AddCampusPage from "./pages/campus/AddCampusPage";
 import AddStudentPage from "./pages/students/AddStudentPage";
+import CampusViewPage from "./pages/campus/CampusViewPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/" element={<HomePage/>}></Route>
                     <Route path="/campuses" element={<Campuses />}></Route>
                     <Route path="/campuses/add" element={<AddCampusPage />}></Route>
+                    <Route path="/campuses/:campusId" element={<CampusViewPage />}></Route>
                     <Route path="/students" element={<Students />}></Route>
                     <Route path="/students/add" element={<AddStudentPage />}></Route>
                 </Routes>

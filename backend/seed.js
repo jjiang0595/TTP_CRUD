@@ -7,7 +7,8 @@ const seedStudent = [
         lastName: 'Doe',
         email: 'johndoe123@gmail.com',
         imageUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-        gpa: 3.9
+        gpa: 3.9,
+        campusId: 1
     },
     {
         firstName: 'Mary',

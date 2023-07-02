@@ -49,10 +49,10 @@ export const fetchAllCampusesThunk = () => {
     }
 }
 
-export const fetchSingleCampusThunk = async (id) => {
+export const fetchSingleCampusThunk = (campusId) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get(`http://localhost:8080/api/campuses/${id}`);
+            const {data} = await axios.get(`http://localhost:8080/api/campuses/${campusId}`);
             dispatch(fetchSingleCampus(data));
         } catch (err) {
             console.log(err);
@@ -71,7 +71,7 @@ export const deleteCampusThunk = (campusId) => {
     }
 }
 
-export const createCampusThunk = async (campus) => {
+export const createCampusThunk = (campus) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.post("http://localhost:8080/api/campuses", campus);
@@ -82,7 +82,7 @@ export const createCampusThunk = async (campus) => {
     }
 }
 
-export const updateCampusThunk = async (id) => {
+export const updateCampusThunk = (id) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.put(`http://localhost:8080/api/campuses/${id}`);
