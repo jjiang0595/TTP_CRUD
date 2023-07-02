@@ -43,7 +43,7 @@ function AddCampus() {
 
                 <div>
                     <label htmlFor="url" className={styles.container__form__label}>Image URL:</label>
-                    <input value={campus.url} className={styles.container__form__input} type="url" id="url" onChange={changeHandler}
+                    <input className={styles.container__form__input} type="url" id="url" onChange={changeHandler}
                            name="url" placeholder="URL"/>
                 </div>
 

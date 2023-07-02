@@ -13,8 +13,7 @@ const Campus = db.define('Campus', {
     },
     imageUrl: {
         type: DataTypes.STRING,
-        defaultValue: 'https://commons.wikimedia.org/wiki/File:Image_not_available.png',
-        allowNull: false,
+        defaultValue: 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
     },
     address: {
         type: DataTypes.STRING,
