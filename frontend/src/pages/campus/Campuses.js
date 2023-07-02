@@ -13,11 +13,6 @@ function Campuses() {
         return dispatch(fetchAllCampusesThunk());
     };
 
-    const deleteCampus = (event, id) => {
-        event.preventDefault();
-        dispatch(deleteCampusThunk(id));
-    };
-
     useEffect(() => {
         fetchAllCampuses();
     }, [])
