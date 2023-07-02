@@ -18,11 +18,11 @@ function StudentCell({student}) {
 
     return (
         <li>
-            <Link to={`/campuses/${student.id}`} className={styles.cell}>
+            <Link to={`/students/${student.id}`} className={styles.cell}>
                 <img src={student.imageUrl} alt={student.name}
                      className={styles.cell__image}/>
                 <p className={styles.cell__text}>{student.firstName} {student.lastName}</p>
-                <Link to={`/campuses/${student.id}/edit`}
+                <Link to={`/students/${student.id}/edit`}
                       className={styles.cell__edit}>Edit</Link>
                 <button type="button" onClick={deleteStudent}
                         className={styles.cell__delete}>Delete
