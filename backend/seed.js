@@ -38,7 +38,7 @@ const seedCampus = [
         name: 'Brooklyn College',
         imageUrl: 'https://www.brooklyn.edu/wp-content/uploads/NEWS-Default-1-Featured.jpg',
         address: '2900 Bedford Ave, Brooklyn, NY 11210',
-        description: 'Brooklyn College!'
+        description: 'Brooklyn College provides a transformative, distinctive, and affordable education to students from all backgrounds.'
     },
     {
         name: 'Hunter College',
