@@ -60,11 +60,11 @@ export const fetchSingleCampusThunk = async (id) => {
     }
 }
 
-export const deleteCampusThunk = async (id) => {
+export const deleteCampusThunk = (campusId) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.delete(`http://localhost:8080/api/campuses/${id}`);
-            dispatch(deleteCampus(data));
+            await axios.delete(`http://localhost:8080/api/campuses/${campusId}`);
+            dispatch(deleteCampus(campusId));
         } catch (err) {
             console.log(err)
         }

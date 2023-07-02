@@ -1,9 +1,26 @@
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import styles from './Campuses.module.scss';
+import {useDispatch, useSelector} from "react-redux";
+import {deleteCampusThunk, fetchAllCampusesThunk} from "../../redux/campus/campus.action";
+import CampusCell from "./CampusCell";
 
 function Campuses() {
-    const [campuses, setCampuses] = useState([]);
+    const dispatch = useDispatch();
+    const campuses = useSelector(state => state.campuses.allCampuses);
+
+    const fetchAllCampuses = () => {
+        return dispatch(fetchAllCampusesThunk());
+    };
+
+    const deleteCampus = (event, id) => {
+        event.preventDefault();
+        dispatch(deleteCampusThunk(id));
+    };
+
+    useEffect(() => {
+        fetchAllCampuses();
+    }, [])
 
     return (
         <div className={styles.campuses}>
@@ -11,15 +28,11 @@ function Campuses() {
                 <h1 className={styles.campuses__header__title}>Campuses List</h1>
                 <Link to="/campuses/add" className={styles.campuses__header__button}>Add Campus</Link>
             </div>
-            {!campuses ?
-                <ul>
-                    {campuses.map(campus => {
-                        return (<li key={campus.id}>
-                            <Link to={`/campuses/${campus.id}`}>
-                                {campus.name}
-                            </Link>
-                        </li>)
-                    })}
+            {campuses.length > 0 ?
+                <ul className={styles.campuses__grid}>
+                    {campuses.map(campus =>
+                        <CampusCell key={campus.id} campus={campus} />
+                    )}
                 </ul>
                 : <p className={styles.campuses__none}>No Campuses</p>}
 
