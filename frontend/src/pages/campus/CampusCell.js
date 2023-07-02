@@ -7,7 +7,7 @@ function CampusCell({campus}) {
     const dispatch = useDispatch();
     const deleteCampus = (event) => {
         event.preventDefault();
-        dispatch(deleteCampusThunk(campus.id));
+        dispatch(deleteCampusThunk(campus.campusId));
     };
 
     return (
