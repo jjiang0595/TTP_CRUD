@@ -12,11 +12,11 @@ function CampusCell({campus}) {
 
     return (
         <li>
-            <Link to={`/campuses/${campus.id}`} className={styles.cell}>
+            <Link to={`/campuses/${campus.campusId}`} className={styles.cell}>
                 <img src={campus.imageUrl} alt={campus.name}
                      className={styles.cell__image}/>
                 <p className={styles.cell__text}>{campus.name}</p>
-                <Link to={`/campuses/${campus.id}/edit`}
+                <Link to={`/campuses/${campus.campusId}/edit`}
                       className={styles.cell__edit}>Edit</Link>
                 <button type="button" onClick={deleteCampus}
                         className={styles.cell__delete}>Delete

@@ -26,7 +26,7 @@ function Campuses() {
             {campuses.length > 0 ?
                 <ul className={styles.campuses__grid}>
                     {campuses.map(campus =>
-                        <CampusCell key={campus.id} campus={campus} />
+                        <CampusCell key={campus.campusId} campus={campus} />
                     )}
                 </ul>
                 : <p className={styles.campuses__none}>No Campuses</p>}
