@@ -74,7 +74,7 @@ export const deleteCampusThunk = (campusId) => {
 export const createCampusThunk = (campus) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.post("http://localhost:8080/api/campuses", campus);
+            const {data} = await axios.post("http://localhost:8080/api/campuses/add", campus);
             dispatch(createCampus(data));
         } catch (err) {
             console.log(err)
@@ -85,7 +85,7 @@ export const createCampusThunk = (campus) => {
 export const updateCampusThunk = (id) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.put(`http://localhost:8080/api/campuses/${id}`);
+            const {data} = await axios.put(`http://localhost:8080/api/campuses/${id}/edit`);
             dispatch(updateCampus(data));
         } catch (err) {
             console.log(err)
