@@ -2,9 +2,11 @@ import styles from './AddStudent.module.scss';
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {createStudentThunk} from "../../redux/student/student.action";
+import {useNavigate} from "react-router-dom";
 
 function AddStudent() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [student, setStudent] = useState({
         firstName: "",
         lastName: "",
@@ -21,6 +23,7 @@ function AddStudent() {
     const submitHandler = (event) => {
         event.preventDefault();
         dispatch(createStudentThunk(student));
+        navigate("/students");
     }
 
     return (
