@@ -6,12 +6,24 @@
   margin: 5rem 10rem;
   width: 80vw;
 
+  &__grid {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem;
+    list-style: none;
+    width: 100%;
+  }
+
   &__header {
     width: inherit;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-left: 2.5rem;
 
     &__title {
       font-size: 3rem;
