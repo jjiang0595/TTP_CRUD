@@ -2,6 +2,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchSingleCampusThunk} from "../../redux/campus/campus.action";
 import {useEffect, useState} from "react";
 import {fetchAllStudentsThunk} from "../../redux/student/student.action";
+import styles from './CampusView.module.scss';
+import CampusCell from "../../pages/campus/CampusCell";
+import StudentCell from "../../pages/students/StudentCell";
 
 const CampusView = ({campusId}) => {
     const dispatch = useDispatch();
@@ -23,15 +26,28 @@ const CampusView = ({campusId}) => {
 
     return (
         <>
-            <div>
-                <div>
-                    {students.length > 0 ? students.map((student) => (
-                        <div key={student.id}>
-                            <p>{student.firstName} {student.lastName}</p>
-                        </div>
-                    )) : <p>No Students</p>}
+            <div className={styles.container}>
+                <img className={styles.container__image} src={campus.imageUrl} alt={campus.name}/>
+                <div className={styles.container__header}>
+                    <h1 className={styles.container__header__title}>{campus.name}</h1>
+                    <p className={styles.container__header__address}>{campus.address}</p>
+                    <p>{campus.description}</p>
                 </div>
             </div>
+            <div>
+                <hr/>
+                {students.length > 0 ? (
+                    <>
+                        <h1 className={styles.students__header}>Students in this Campus</h1>
+                        <ul className={styles.students__grid}>
+                            {students.map(student =>
+                                <StudentCell key={student.id} student={student}/>
+                            )}
+                        </ul>
+                    </>
+                ) : <p className={styles.students__none}>No students in this campus</p>}
+            </div>
+
         </>
     )
 }
