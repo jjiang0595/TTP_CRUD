@@ -33,7 +33,7 @@ router.post("/add", async (req, res, next) => {
     }
 });
 
-router.put("/:id", async (req, res, next) => {
+router.put("/:id/edit", async (req, res, next) => {
     try {
         const {firstName, lastName, email, imageUrl, gpa} = req.body;
         const student = await Student.findByPk(req.params.id);

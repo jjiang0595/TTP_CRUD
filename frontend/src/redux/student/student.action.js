@@ -74,7 +74,7 @@ export const deleteStudentThunk = (studentId) => {
 export const createStudentThunk = (student) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.post("http://localhost:8080/api/students", student);
+            const {data} = await axios.post("http://localhost:8080/api/students/add", student);
             dispatch(createStudent(data));
         } catch (err) {
             console.log(err)
