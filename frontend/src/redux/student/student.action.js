@@ -1,6 +1,5 @@
 import axios from "axios";
 import StudentActionTypes from "./student.types";
-import {createCampus, deleteCampus, fetchAllCampuses, fetchSingleCampus, updateCampus} from "../campus/campus.action";
 
 // actions
 export const fetchAllStudents = (payload) => {

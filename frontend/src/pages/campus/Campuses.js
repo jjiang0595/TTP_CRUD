@@ -1,8 +1,8 @@
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import styles from './Campuses.module.scss';
 import {useDispatch, useSelector} from "react-redux";
-import {deleteCampusThunk, fetchAllCampusesThunk} from "../../redux/campus/campus.action";
+import {fetchAllCampusesThunk} from "../../redux/campus/campus.action";
 import CampusCell from "./CampusCell";
 
 function Campuses() {
