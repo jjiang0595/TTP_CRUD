@@ -1,5 +1,6 @@
 import axios from "axios";
 import StudentActionTypes from "./student.types";
+import {createCampus, deleteCampus, fetchAllCampuses, fetchSingleCampus, updateCampus} from "../campus/campus.action";
 
 // actions
 export const fetchAllStudents = (payload) => {
@@ -39,41 +40,56 @@ export const updateStudent = (payload) => {
 
 // thunks
 export const fetchAllStudentsThunk = () => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get("http://localhost:8080/api/students");
+            dispatch(fetchAllStudents(data));
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
-export const fetchSingleStudentThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const fetchSingleStudentThunk = (studentId) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get(`http://localhost:8080/api/students/${studentId}`);
+            dispatch(fetchSingleStudent(data));
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
-export const deleteStudentThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const deleteStudentThunk = (studentId) => {
+    return async (dispatch) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/students/${studentId}`);
+            dispatch(deleteStudent(studentId));
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
 
-export const createStudentThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const createStudentThunk = (student) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.post("http://localhost:8080/api/students", student);
+            dispatch(createStudent(data));
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
 
-export const updateStudentThunk = (payload) => {
-    try {
-        // fetch from api here
-    } catch (err) {
-        console.log(err)
+export const updateStudentThunk = (studentId) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.put(`http://localhost:8080/api/students/${studentId}`);
+            dispatch(updateStudent(data));
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
