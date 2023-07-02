@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import styles from './Campuses.module.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllCampusesThunk} from "../../redux/campus/campus.action";
-import CampusCell from "./CampusCell";
+import CampusCell from "../../components/campuses/CampusCell";
 
 function Campuses() {
     const dispatch = useDispatch();

@@ -3,8 +3,8 @@ import {fetchSingleCampusThunk} from "../../redux/campus/campus.action";
 import {useEffect, useState} from "react";
 import {fetchAllStudentsThunk} from "../../redux/student/student.action";
 import styles from './CampusView.module.scss';
-import CampusCell from "../../pages/campus/CampusCell";
-import StudentCell from "../../pages/students/StudentCell";
+import CampusCell from "./CampusCell";
+import StudentCell from "../students/StudentCell";
 
 const CampusView = ({campusId}) => {
     const dispatch = useDispatch();

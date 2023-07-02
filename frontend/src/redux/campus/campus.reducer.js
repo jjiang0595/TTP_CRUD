@@ -20,7 +20,7 @@ const campusReducer = (state = CAMPUS_INITIAL_STATE, {type, payload}) => {
         case CampusActionTypes.DELETE_CAMPUS:
             return {
                 ...state,
-                allCampuses: state.allCampuses.filter(campus => campus.id !== payload)
+                allCampuses: state.allCampuses.filter(campus => campus.campusId !== payload)
             }
         case CampusActionTypes.CREATE_CAMPUS:
             return {
@@ -31,7 +31,7 @@ const campusReducer = (state = CAMPUS_INITIAL_STATE, {type, payload}) => {
             return {
                 ...state,
                 allCampuses: state.allCampuses.map(campus => {
-                    return campus.id === payload.id ? payload : campus
+                    return campus.campusId === payload.id ? payload : campus
                 }),
                 singleCampus: payload
             }

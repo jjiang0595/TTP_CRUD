@@ -1,8 +1,7 @@
 import {Link} from "react-router-dom";
 import styles from './StudentCell.module.scss';
 import {useDispatch} from "react-redux";
-import {useEffect} from "react";
-import {deleteStudentThunk, fetchAllStudents} from "../../redux/student/student.action";
+import {deleteStudentThunk} from "../../redux/student/student.action";
 
 function StudentCell({student}) {
     const dispatch = useDispatch();
@@ -11,10 +10,6 @@ function StudentCell({student}) {
         event.preventDefault();
         dispatch(deleteStudentThunk(student.id));
     };
-
-    useEffect(() => {
-        fetchAllStudents();
-    }, [])
 
     return (
         <li>

@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import styles from './Students.module.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllStudentsThunk} from "../../redux/student/student.action";
-import StudentCell from "./StudentCell";
+import StudentCell from "../../components/students/StudentCell";
 
 function Students() {
     const dispatch = useDispatch();
