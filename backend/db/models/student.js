@@ -20,7 +20,7 @@ const Student = db.define('Student', {
         allowNull: false,
         validate: {
             isEmail: {
-                msg: "Invalid email address format",
+                msg: "Invalid+ email address format",
             }
         }
     },
@@ -37,6 +37,7 @@ const Student = db.define('Student', {
     },
     campusId: {
         type: DataTypes.INTEGER,
+        default: 0,
         allowNull: true
     }
 });

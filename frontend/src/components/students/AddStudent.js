@@ -6,9 +6,10 @@ import {createStudentThunk} from "../../redux/student/student.action";
 function AddStudent() {
     const dispatch = useDispatch();
     const [student, setStudent] = useState({
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
-        url: "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg",
+        imageUrl: "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg",
         gpa: 0,
         campusId: 0
     })

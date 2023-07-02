@@ -25,9 +25,12 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/add", async (req, res, next) => {
+    const {firstName, lastName, email, imageUrl, gpa} = req.body;
     try {
-        const newStudent = await Student.create(req.body);
-        res.status(201).json(newStudent);
+        const newStudent = await Student.create({firstName, lastName, email,imageUrl, gpa});
+        newStudent ?
+            res.status(201).json(newStudent)
+            : res.status(404).send("Error Creating Student")
     } catch (err) {
         next(err);
     }
