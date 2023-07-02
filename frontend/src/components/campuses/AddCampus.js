@@ -10,7 +10,7 @@ function AddCampus() {
     const [campus, setCampus] = useState({
         name: "",
         address: "",
-        url: "",
+        imageUrl: "",
         description: ""
     })
 
