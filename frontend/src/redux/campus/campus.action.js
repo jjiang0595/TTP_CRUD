@@ -41,7 +41,7 @@ export const updateCampus = (payload) => {
 export const fetchAllCampusesThunk = () => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get("http://localhost:8080/api/campuses");
+            const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/campuses`);
             dispatch(fetchAllCampuses(data));
         } catch (err) {
             console.log(err);
@@ -52,7 +52,7 @@ export const fetchAllCampusesThunk = () => {
 export const fetchSingleCampusThunk = (campusId) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get(`http://localhost:8080/api/campuses/${campusId}`);
+            const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/api/campuses/${campusId}`);
             dispatch(fetchSingleCampus(data));
         } catch (err) {
             console.log(err);
@@ -63,7 +63,7 @@ export const fetchSingleCampusThunk = (campusId) => {
 export const deleteCampusThunk = (campusId) => {
     return async (dispatch) => {
         try {
-            await axios.delete(`http://localhost:8080/api/campuses/${campusId}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/campuses/${campusId}`);
             dispatch(deleteCampus(campusId));
         } catch (err) {
             console.log(err)
@@ -74,7 +74,7 @@ export const deleteCampusThunk = (campusId) => {
 export const createCampusThunk = (campus) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.post("http://localhost:8080/api/campuses/add", campus);
+            const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/campuses/add`, campus);
             dispatch(createCampus(data));
         } catch (err) {
             console.log(err)
@@ -85,7 +85,7 @@ export const createCampusThunk = (campus) => {
 export const updateCampusThunk = (campusId, campus) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.put(`http://localhost:8080/api/campuses/${campusId}/edit`, campus);
+            const {data} = await axios.put(`${process.env.REACT_APP_API_URL}/api/campuses/${campusId}/edit`, campus);
             dispatch(updateCampus(data));
         } catch (err) {
             console.log(err)
