@@ -1,13 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
-import {fetchSingleCampusThunk} from "../../redux/campus/campus.action";
+import {deleteCampusThunk, fetchSingleCampusThunk} from "../../redux/campus/campus.action";
 import {useEffect, useState} from "react";
 import {fetchAllStudentsThunk} from "../../redux/student/student.action";
 import styles from './CampusView.module.scss';
 import CampusCell from "./CampusCell";
 import StudentCell from "../students/StudentCell";
+import {Link, useNavigate} from "react-router-dom";
 
 const CampusView = ({campusId}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const campus = useSelector(state => state.campuses.singleCampus);
     const students = useSelector((state) => state.students.allStudents.filter((student) => student.campusId === campus.campusId));
 
@@ -17,6 +19,11 @@ const CampusView = ({campusId}) => {
 
     const fetchAllStudents = () => {
         return dispatch(fetchAllStudentsThunk());
+    }
+
+    const deleteHandler = () => {
+        dispatch(deleteCampusThunk(campus.campusId));
+        navigate('/campuses');
     }
 
     useEffect(() => {
@@ -33,6 +40,10 @@ const CampusView = ({campusId}) => {
                     <p className={styles.container__header__address}>{campus.address}</p>
                     <p>{campus.description}</p>
                 </div>
+            </div>
+            <div className={styles.buttons}>
+                <Link className={styles.buttons__edit} to={`/campuses/${campus.campusId}/edit`}>Edit</Link>
+                <button className={styles.buttons__delete} type="button" onClick={deleteHandler}>Delete</button>
             </div>
             <div>
                 <hr/>
