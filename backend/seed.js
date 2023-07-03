@@ -23,13 +23,6 @@ const seedStudent = [
         imageUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
         gpa: 3.8
     },
-    {
-        firstName: 'Jerry',
-        lastName: 'Jiang',
-        email: 'jerryj49@gmail.com',
-        imageUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-        gpa: 4
-    }
 ]
 
 const seedCampus = [
