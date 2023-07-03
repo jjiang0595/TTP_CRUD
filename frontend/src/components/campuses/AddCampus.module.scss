@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin: 2.5rem 10rem;
   width: 80vw;
 
@@ -12,7 +11,7 @@
 
   &__form {
     display: flex;
-    height: 25rem;
+    height: 40rem;
     flex-direction: column;
     width: inherit;
 
@@ -36,7 +35,7 @@
 
       font-size: 1.5rem;
       justify-content: center;
-      width: 15rem;
+      width: 12rem;
       padding: 1rem;
       border-radius: 1.5rem;
       border: 2px solid black;
@@ -54,8 +53,8 @@
 textarea {
   display: flex;
   font-family: sans-serif;
-  width: 100%;
-  height: 10rem;
+  width: 60%;
+  height: 20rem;
   resize: none;
   font-size: 1.25rem;
 
@@ -64,10 +63,4 @@ textarea {
   border: 2px solid black;
   margin-top: 1rem;
   background-color: rgba(255, 255, 255, 0.5);
-}
-
-.column {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
 }

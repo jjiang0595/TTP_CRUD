@@ -29,33 +29,30 @@ function EditStudent({id}) {
         <div className={styles.container}>
             <h1 className={styles.container__header}>Edit Student</h1>
             <form onSubmit={submitHandler} className={styles.container__form}>
-                <div className={styles.column}>
-                    <>
-                        <label htmlFor="firstName" className={styles.container__form__label}>First Name:</label>
-                        <input className={styles.container__form__input} onChange={changeHandler} type="text" id="firstName" name="firstName"
-                               required/>
-                    </>
-                    <>
-                        <label htmlFor="lastName" className={styles.container__form__label}>Last Name:</label>
-                        <input className={styles.container__form__input} onChange={changeHandler} type="text" id="lastName" name="lastName"
-                               required/>
-                    </>
-                </div>
-                <div className={styles.column}>
-                    <>
-                        <label htmlFor="email" className={styles.container__form__label}>Email:</label>
-                        <input className={styles.container__form__input} onChange={changeHandler} type="email" id="email" name="email"
-                               required/>
-                    </>
-                    <>
-                        <label htmlFor="url" className={styles.container__form__label}>Image URL:</label>
-                        <input className={styles.container__form__input} onChange={changeHandler} type="url" id="url" name="URL"/>
-                    </>
-                </div>
+
+                <label htmlFor="firstName" className={styles.container__form__label}>First Name:</label>
+                <input className={styles.container__form__input} onChange={changeHandler} type="text" id="firstName"
+                       name="firstName"
+                       required/>
+
+                <label htmlFor="lastName" className={styles.container__form__label}>Last Name:</label>
+                <input className={styles.container__form__input} onChange={changeHandler} type="text" id="lastName"
+                       name="lastName"
+                       required/>
+
+                <label htmlFor="email" className={styles.container__form__label}>Email:</label>
+                <input className={styles.container__form__input} onChange={changeHandler} type="email" id="email"
+                       name="email"
+                       required/>
+
+                <label htmlFor="url" className={styles.container__form__label}>Image URL:</label>
+                <input className={styles.container__form__input} onChange={changeHandler} type="url" id="url"
+                       name="URL"/>
 
                 <div>
                     <label htmlFor="gpa" className={styles.container__form__label}>GPA:</label>
-                    <input className={styles.container__form__input} onChange={changeHandler} type="number" min="0.0" max="4.0" step=".25" id="gpa" name="gpa" required/>
+                    <input className={styles.container__form__input} onChange={changeHandler} type="number" min="0.0"
+                           max="4.0" step=".25" id="gpa" name="gpa" required/>
                 </div>
                 <button type="submit" className={styles.container__form__submit}>Edit Student</button>
             </form>
