@@ -1,10 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllCampusesThunk} from "../../redux/campus/campus.action";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import styles from './StudentView.module.scss';
 import CampusCell from "../campuses/CampusCell";
-import {deleteStudentThunk, fetchSingleStudentThunk} from "../../redux/student/student.action";
+import {deleteStudentThunk, fetchSingleStudentThunk, updateStudentThunk} from "../../redux/student/student.action";
 import {Link, useNavigate} from "react-router-dom";
+import SelectCampusCell from "../campuses/SelectCampusCell";
 
 const StudentView = ({id}) => {
     const dispatch = useDispatch();
@@ -12,6 +13,12 @@ const StudentView = ({id}) => {
     const student = useSelector(state => state.students.singleStudent);
     const campuses = useSelector((state) => state.campuses.allCampuses.filter((campus) => campus.campusId === student.campusId));
     const allCampuses = useSelector(state => state.campuses.allCampuses);
+    const [selectedCampusId, setSelectedCampusId] = useState(null);
+
+    const handleCampusSelect = (campusId) => {
+        setSelectedCampusId(campusId);
+        dispatch(updateStudentThunk(student.id, {...student, campusId: campusId}));
+    };
 
     const fetchSingleStudent = () => {
         return dispatch(fetchSingleStudentThunk(id));
@@ -27,8 +34,8 @@ const StudentView = ({id}) => {
     }
 
     useEffect(() => {
-        fetchSingleStudent();
         fetchAllCampuses();
+        fetchSingleStudent();
     }, [])
 
     return (
@@ -46,26 +53,23 @@ const StudentView = ({id}) => {
             </div>
             <div>
                 <hr/>
-                {campuses.length > 0 ? (
+                {student.campusId > 0 ? (
                     <>
-                        <h1 className={styles.students__header}>This student is registered to a campus.</h1>
-                        <ul className={styles.students__grid}>
-                            {campuses.map(campus =>
-                                <CampusCell key={campus.id} campus={campus}/>
-                            )}
-                        </ul>
-                    </>
-                ) : <p className={styles.students__none}>This student is not registered to a campus.</p>}
-                {allCampuses.length > 0 ? (
+                        <p className={styles.students__none}>This student is registered to {campuses[0].name}.</p>
+                    </>)
+                    : <p className={styles.students__none}>This student is not registered to a campus.</p>
+                }
+                {allCampuses.length > 0 &&
                     <>
                         <h1 className={styles.students__header}>All Campuses</h1>
                         <ul className={styles.students__grid}>
                             {allCampuses.map(campus =>
-                                <CampusCell key={campus.id} campus={campus}/>
+                                <SelectCampusCell key={campus.id} campus={campus} selectedCampusId={selectedCampusId}
+                                                  onSelect={handleCampusSelect}/>
                             )}
                         </ul>
                     </>
-                ) : <p className={styles.students__none}>No Campuses</p>}
+                }
             </div>
         </>
     )
