@@ -38,10 +38,10 @@ router.post("/add", async (req, res, next) => {
 
 router.put("/:id/edit", async (req, res, next) => {
     try {
-        const {firstName, lastName, email, imageUrl, gpa} = req.body;
+        const {firstName, lastName, email, imageUrl, gpa, campusId} = req.body;
         const student = await Student.findByPk(req.params.id);
         if (student) {
-            await student.update({firstName, lastName, email, imageUrl, gpa});
+            await student.update({firstName, lastName, email, imageUrl, gpa, campusId});
             res.status(200).json(student);
         } else {
             res.status(404).send("Student Not Found");
