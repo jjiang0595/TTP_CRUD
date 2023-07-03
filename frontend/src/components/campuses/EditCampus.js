@@ -1,7 +1,7 @@
-import styles from "./EditCampus.module.scss";
+import styles from './AddCampus.module.scss';
 import {useState} from "react";
 import {updateCampusThunk} from "../../redux/campus/campus.action";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
 function EditCampus({campusId}) {
