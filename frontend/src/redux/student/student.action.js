@@ -82,10 +82,10 @@ export const createStudentThunk = (student) => {
     }
 }
 
-export const updateStudentThunk = (studentId) => {
+export const updateStudentThunk = (studentId, student) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.put(`http://localhost:8080/api/students/${studentId}`);
+            const {data} = await axios.put(`http://localhost:8080/api/students/${studentId}`, student);
             dispatch(updateStudent(data));
         } catch (err) {
             console.log(err)
