@@ -2,7 +2,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAllCampusesThunk} from "../../redux/campus/campus.action";
 import {useEffect, useState} from "react";
 import styles from './StudentView.module.scss';
-import CampusCell from "../campuses/CampusCell";
 import {deleteStudentThunk, fetchSingleStudentThunk, updateStudentThunk} from "../../redux/student/student.action";
 import {Link, useNavigate} from "react-router-dom";
 import SelectCampusCell from "../campuses/SelectCampusCell";
