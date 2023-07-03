@@ -1,9 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import {deleteCampusThunk, fetchSingleCampusThunk} from "../../redux/campus/campus.action";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {fetchAllStudentsThunk} from "../../redux/student/student.action";
 import styles from './CampusView.module.scss';
-import CampusCell from "./CampusCell";
 import StudentCell from "../students/StudentCell";
 import {Link, useNavigate} from "react-router-dom";
 

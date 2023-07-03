@@ -1,10 +1,7 @@
 import {Link} from "react-router-dom";
 import styles from './SelectCampusCell.module.scss';
-import {useDispatch} from "react-redux";
 
 function SelectCampusCell({campus, onSelect, selectedCampusId}) {
-    const dispatch = useDispatch();
-
     const handleCheckboxChange = () => {
         onSelect(campus.campusId);
     };
