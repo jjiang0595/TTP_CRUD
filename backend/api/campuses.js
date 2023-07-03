@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {Campus} = require('../db/models');
+const {Campus: Campuses} = require('../db/models');
 
 router.get("/", async (req, res, next) => {
     try {
-        const campuses = await Campus.findAll();
+        const campuses = await Campuses.findAll();
         campuses
             ? res.status(200).json(campuses)
             : res.status(404).send("Campuses Not Found");
@@ -15,10 +15,10 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
     try {
-        const campus = await Campus.findByPk(req.params.id);
+        const campus = await Campuses.findByPk(req.params.id);
         campus
             ? res.status(200).json(campus)
-            : res.status(404).send("Campus Not Found");
+            : res.status(404).send("Campuses Not Found");
     } catch (err) {
         next(err);
     }
@@ -27,7 +27,7 @@ router.get("/:id", async (req, res, next) => {
 router.post("/add", async (req, res, next) => {
     const {name, imageUrl, address, description} = req.body;
     try {
-        const newCampus = await Campus.create({name, imageUrl, address, description});
+        const newCampus = await Campuses.create({name, imageUrl, address, description});
         res.status(201).json(newCampus);
     } catch (err) {
         next(err);
@@ -37,12 +37,12 @@ router.post("/add", async (req, res, next) => {
 router.put("/:id/edit", async (req, res, next) => {
     try {
         const {name, imageUrl, address, description} = req.body;
-        const campus = await Campus.findByPk(req.params.id);
+        const campus = await Campuses.findByPk(req.params.id);
         if (campus) {
             await campus.update({name, imageUrl, address, description});
             res.status(200).json(campus);
         } else {
-            res.status(404).send("Campus Not Found");
+            res.status(404).send("Campuses Not Found");
         }
     } catch (err) {
         next(err);
@@ -51,12 +51,12 @@ router.put("/:id/edit", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
     try {
-        const campus = await Campus.findByPk(req.params.id);
+        const campus = await Campuses.findByPk(req.params.id);
         if (campus) {
             await campus.destroy();
             res.status(200).send("Successfully Deleted");
         } else {
-            res.status(404).send("Campus Not Found");
+            res.status(404).send("Campuses Not Found");
         }
     } catch (err) {
         next(err);
