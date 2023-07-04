@@ -51,7 +51,7 @@ function AddStudent() {
 
                 <label htmlFor="gpa" className={styles.container__form__label}>GPA:</label>
                 <input className={styles.container__form__input} onChange={changeHandler} type="number" min="0.0"
-                       max="4.0" step=".25" id="gpa" name="gpa" required/>
+                       max="4.0" step=".1" id="gpa" name="gpa" required/>
                 <button type="submit" className={styles.container__form__submit}>Add Student</button>
             </form>
         </div>
