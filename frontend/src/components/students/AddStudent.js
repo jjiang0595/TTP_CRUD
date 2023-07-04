@@ -11,7 +11,7 @@ function AddStudent() {
         firstName: "",
         lastName: "",
         email: "",
-        imageUrl: "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg",
+        imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
         gpa: 0,
         campusId: 0
     })
