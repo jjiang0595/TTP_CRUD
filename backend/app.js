@@ -5,7 +5,7 @@ const db = require('./db/db');
 const app = express();
 
 app.use(cors({
-    origin: "https://storied-capybara-5303a7.netlify.app"
+    origin: "https://main--storied-capybara-5303a7.netlify.app"
 }));
 app.use(express.json());
 
